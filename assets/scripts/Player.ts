@@ -15,6 +15,9 @@ export default class Player extends cc.Component {
     @property
     maxSpeed: number = 0;
 
+    // Horizontal speed.
+    xSpeed: number = 0;
+
     // In pixels per second.
     @property
     accel: number = 0;
