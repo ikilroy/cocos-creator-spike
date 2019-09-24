@@ -1,6 +1,6 @@
 {
   "ver": "2.3.1",
-  "uuid": "c6b5fd13-6a7f-4187-8716-1189e5d13c27",
+  "uuid": "6e295951-c376-4d88-aa1e-fa0d7fad2685",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -9,8 +9,8 @@
   "subMetas": {
     "PurpleMonster": {
       "ver": "1.0.4",
-      "uuid": "a7d32fc1-4a29-491e-a5e2-0892063d35d0",
-      "rawTextureUuid": "c6b5fd13-6a7f-4187-8716-1189e5d13c27",
+      "uuid": "8af71b8d-1d34-4c13-8a49-cfe1ddd9ca42",
+      "rawTextureUuid": "6e295951-c376-4d88-aa1e-fa0d7fad2685",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
