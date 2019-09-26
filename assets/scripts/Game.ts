@@ -9,13 +9,18 @@ export default class Game extends cc.Component {
     star: cc.Prefab = null;
 
     @property(cc.Node)
-    ground: cc.Node = null
+    ground: cc.Node = null;
 
     @property(cc.Node)
     player: cc.Node = null;
 
     @property(cc.Label)
     scoreLabel: cc.Label = null;
+
+    @property({
+        type: cc.AudioClip
+    })
+    scoreAudio: cc.AudioClip = null;
 
     @property
     maxStarDuration: number = 0;
@@ -72,6 +77,7 @@ export default class Game extends cc.Component {
     addPoint(): void {
         this.score += 1;
         this.scoreLabel.string = 'Score: ' + this.score;
+        cc.audioEngine.playEffect(this.scoreAudio, false);
     }
 
     gameOver() {

@@ -171,7 +171,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 554.2562584220408
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -511,6 +511,9 @@
     "jumpDuration": 0.3,
     "maxSpeed": 400,
     "accel": 350,
+    "jumpAudio": {
+      "__uuid__": "79316fbb-114b-48c8-b031-3431e45935f6"
+    },
     "_id": "118laaIB5EIIeT7BfbNv+q"
   },
   {
@@ -641,6 +644,9 @@
     },
     "scoreLabel": {
       "__id__": 13
+    },
+    "scoreAudio": {
+      "__uuid__": "f7c77a67-d48a-4361-ad17-f12b310a7504"
     },
     "maxStarDuration": 5,
     "minStarDuration": 3,

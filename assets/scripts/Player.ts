@@ -22,7 +22,9 @@ export default class Player extends cc.Component {
     @property
     accel: number = 0;
 
-    @property(cc.AudioClip)
+    @property({
+        type: cc.AudioClip
+    })
     jumpAudio: cc.AudioClip = null;
 
     // Flag to move right or left.
