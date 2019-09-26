@@ -24,6 +24,9 @@ export default class Star extends cc.Component {
     }
 
     update(dt: number): void {
+        var opacityRatio = 1 - this.game.timer / this.game.starDuration;
+        var minOpacity = 50;
+        this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
         if (this.getPlayerDistance() < this.pickRadius) {
             this.onPicked();
         }

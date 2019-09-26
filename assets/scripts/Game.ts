@@ -27,8 +27,16 @@ export default class Game extends cc.Component {
 
     score: number = 0;
 
+    timer: number = 0;
+
+    starDuration: number = 0;
+
     onLoad(): void {
         this.groundY = this.ground.y + this.ground.height / 2;
+
+        this.timer = 0;
+        this.starDuration = 0;
+
         this.spawnNewStar();
         this.score = 0;
     }
@@ -36,11 +44,21 @@ export default class Game extends cc.Component {
     start(): void {
     }
 
+    update(dt: number): void {
+        if (this.timer > this.starDuration) {
+            this.gameOver();
+            return;
+        }
+        this.timer += dt;
+    }
+
     spawnNewStar(): void {
         var newStar = cc.instantiate(this.star);
         this.node.addChild(newStar);
         newStar.setPosition(this.starPosition());
         (newStar.getComponent('Star') as Star).game = this;
+        this.starDuration = this.minStarDuration + Math.random() * (this.maxStarDuration - this.minStarDuration);
+        this.timer = 0;
     }
 
     starPosition(): cc.Vec2 {
@@ -54,5 +72,10 @@ export default class Game extends cc.Component {
     addPoint(): void {
         this.score += 1;
         this.scoreLabel.string = 'Score: ' + this.score;
+    }
+
+    gameOver() {
+        this.player.stopAllActions();
+        cc.director.loadScene('Game');
     }
 }
