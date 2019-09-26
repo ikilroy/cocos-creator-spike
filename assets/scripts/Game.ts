@@ -14,6 +14,9 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     player: cc.Node = null;
 
+    @property(cc.Label)
+    scoreLabel: cc.Label = null;
+
     @property
     maxStarDuration: number = 0;
 
@@ -22,9 +25,12 @@ export default class Game extends cc.Component {
 
     groundY: number = 0;
 
+    score: number = 0;
+
     onLoad(): void {
         this.groundY = this.ground.y + this.ground.height / 2;
         this.spawnNewStar();
+        this.score = 0;
     }
 
     start(): void {
@@ -43,5 +49,10 @@ export default class Game extends cc.Component {
         var maxX = this.node.width / 2;
         randX = (Math.random() - 0.5) * 2 * maxX;
         return cc.v2(randX, randY);
+    }
+
+    addPoint(): void {
+        this.score += 1;
+        this.scoreLabel.string = 'Score: ' + this.score;
     }
 }

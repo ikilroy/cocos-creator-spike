@@ -11,14 +11,15 @@ export default class Star extends cc.Component {
 
     game: Game = null;
 
-    getPlayerDistance = function (): number {
+    getPlayerDistance(): number {
         var playerPos = this.game.player.getPosition();
         var dist = this.node.position.sub(playerPos).mag();
         return dist;
     }
 
-    onPicked = function () {
+    onPicked(): void {
         this.game.spawnNewStar();
+        this.game.addPoint();
         this.node.destroy();
     }
 
