@@ -22,6 +22,9 @@ export default class Player extends cc.Component {
     @property
     accel: number = 0;
 
+    @property(cc.AudioClip)
+    jumpAudio: cc.AudioClip = null;
+
     // Flag to move right or left.
     goLeft: boolean = false;
 
@@ -62,7 +65,8 @@ export default class Player extends cc.Component {
     constructJumpAction(): cc.ActionInterval {
         let jumpUp = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCircleActionOut());
         let jumpDown = cc.moveBy(this.jumpDuration, cc.v2(0, -this.jumpHeight)).easing(cc.easeCircleActionIn());
-        return cc.repeatForever(cc.sequence(jumpUp, jumpDown));
+        var callback = cc.callFunc(this.playJumpSound, this);
+        return cc.repeatForever(cc.sequence(jumpUp, jumpDown, callback));
     }
 
     onKeyDown(event: KeyboardEvent): void {
@@ -85,6 +89,10 @@ export default class Player extends cc.Component {
                 this.goRight = false;
                 break;
         }
+    }
+
+    playJumpSound(): void {
+        cc.audioEngine.playEffect(this.jumpAudio, false);
     }
 
     onDestroy(): boolean {
