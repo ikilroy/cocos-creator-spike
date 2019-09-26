@@ -1,3 +1,4 @@
+import Star from "./Star";
 
 const { ccclass, property } = cc._decorator;
 
@@ -33,6 +34,7 @@ export default class Game extends cc.Component {
         var newStar = cc.instantiate(this.star);
         this.node.addChild(newStar);
         newStar.setPosition(this.starPosition());
+        (newStar.getComponent('Star') as Star).game = this;
     }
 
     starPosition(): cc.Vec2 {
